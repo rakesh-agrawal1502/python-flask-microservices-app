@@ -1,0 +1,49 @@
+version: '3.7'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: "python_flask_customer_nginx"
+    depends_on:
+      - web
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+  web:
+    # This directory should have Dockerfile
+    build: .
+    depends_on:
+      - db
+    networks:
+      - default
+    container_name: "python_flask_customer_web"
+    ports:
+      # For flask default server use 5001:5000
+      - 8000:8000
+    volumes:
+      # Mount current directory from docker host to /usr/src/app in container
+      - .:/usr/src/app
+    restart: always
+
+  db:
+    environment:
+      # Below props create user, password and DB
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: flask
+      PGDATA: /var/lib/postgresql/data/pgdata
+    image: postgres:latest
+    networks:
+      - default
+    ports:
+      - 5434:5432
+    container_name: "python_flask_customer_db"
+    volumes:
+      # This will invoke the initial sql after container is up
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      # Add below when you want to mount the data from DB container to docker host
+      # - ./sampledb:/var/lib/postgresql/data/
+
+# volumes:
+  # sampledb:
