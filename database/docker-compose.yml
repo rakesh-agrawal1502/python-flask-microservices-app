@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:latest
+    environment:
+      # Below props create user, password and DB
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: flask
+      PGDATA: /var/lib/postgresql/data/pgdata
+    networks:
+      - default
+    ports:
+      - 5434:5432
+    container_name: "python_flask_db"
+    volumes:
+      # This will invoke the initial sql after container is up
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      # Add below when you want to mount the data from DB container to docker host
+      # - ./sampledb:/var/lib/postgresql/data/
+
+# volumes:
+  # sampledb:
