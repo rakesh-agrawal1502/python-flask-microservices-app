@@ -56,5 +56,4 @@ class Invoice( Base ):
     amount = Column( Integer )
     customer = relationship( 'Customer' )
 
-
-Base.metadata.create_all(engine)
+# Base.metadata.create_all(engine)

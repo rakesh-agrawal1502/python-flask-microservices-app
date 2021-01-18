@@ -16,7 +16,7 @@ CREATE SEQUENCE sample.invoices_invoice_number_seq
 
 CREATE TABLE sample.customers
 (
-    id integer,
+    id integer NOT NULL DEFAULT nextval('sample.customers_id_seq'::regclass),
     name character varying COLLATE pg_catalog."default" NOT NULL,
     address character varying COLLATE pg_catalog."default",
     email character varying COLLATE pg_catalog."default" NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE sample.customers
 
 CREATE TABLE sample.invoices
 (
-    invoice_number integer,
+    invoice_number integer NOT NULL DEFAULT nextval('sample.invoices_invoice_number_seq'::regclass),
     customer_id integer,
     amount integer,
     CONSTRAINT invoices_pkey PRIMARY KEY (invoice_number),
