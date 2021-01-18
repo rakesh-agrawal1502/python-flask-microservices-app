@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: "python_flask_nginx"
+    networks:
+      - api-net
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+
+networks:
+  api-net:
+    external:
+      name: python-flask-app-network
