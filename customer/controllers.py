@@ -8,12 +8,12 @@ from dbo import select_customers, insert_customer_with_invoices
 customer = Blueprint('customer', __name__)
 
 
-@customer.route( "/api/v1/customers", methods=['GET'] )
+@customer.route( "/api/v1/customer", methods=['GET'] )
 def get_customers():
     return jsonify( fetch_customers() )
 
 
-@customer.route( "/api/v1/customers", methods=['POST'] )
+@customer.route( "/api/v1/customer", methods=['POST'] )
 def insert_customer():
     invoices = []
     # print("Input: ", request.data) JSON String

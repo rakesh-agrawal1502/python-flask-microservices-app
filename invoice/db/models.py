@@ -55,6 +55,3 @@ class Invoice( Base ):
     customer_id = Column( Integer, ForeignKey( 'sample.customers.id' ) )
     amount = Column( Integer )
     customer = relationship( 'Customer' )
-
-
-Base.metadata.create_all(engine)
