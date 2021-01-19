@@ -7,7 +7,7 @@ class Config( object ):
     # Statement for enabling the development environment
     DEBUG = False
     # DATABASE_URI = "postgresql+psycopg2://postgres:password@localhost:5432/flask"
-    # DATABASE_URI = "postgresql+psycopg2://postgres:password@localhost:5434/sample"
+    # DATABASE_URI = "postgresql+psycopg2://postgres:password@localhost:5434/flask"
     DATABASE_URI = "postgresql+psycopg2://postgres:password@db:5432/flask"
 
 

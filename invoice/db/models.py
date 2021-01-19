@@ -51,6 +51,11 @@ class Invoice( Base ):
     def __init__(self, amount):
         self.amount = amount
 
+    def to_json(self):
+        invoice_json = {'customer_name': self.customer.name, 'customer_email': self.customer.email,
+                        'invoice_number': self.invoice_number, 'amount': self.amount}
+        return invoice_json
+
     invoice_number = Column( Integer, primary_key=True )
     customer_id = Column( Integer, ForeignKey( 'sample.customers.id' ) )
     amount = Column( Integer )
