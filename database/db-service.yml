@@ -1,0 +1,20 @@
+# Used for creating service and integrating with deployment
+# kubectl create -f .\db-service.yml
+# kubectl get services
+
+# Access DB from localhost
+# kubectl port-forward postgres-8566d8bd78-lzsjl 5434:5432
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  labels:
+    service: postgres
+spec:
+  selector:
+    service: postgres
+  ports:
+  - port: 5432
+    targetPort: 5432
+  type: ClusterIP

@@ -1,0 +1,18 @@
+# The binding between a Pod and PersistentVolume
+# kubectl apply -f persistent-volume-claim.yml
+# kubectl get pvc
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-pvc
+  labels:
+    type: local
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      name: postgres-pv

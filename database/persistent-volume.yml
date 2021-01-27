@@ -1,0 +1,19 @@
+# The low level representation of a storage volume
+# persistent volume (PV) is the "physical" volume on the host machine that stores your persistent data
+# kubectl apply -f persistent-volume.yml
+# kubectl get pv
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postgres-pv
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 1Gi
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "data"

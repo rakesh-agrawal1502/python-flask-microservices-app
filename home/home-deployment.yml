@@ -1,0 +1,24 @@
+# Used for Deployment
+# kubectl apply -f .\home-deployment.yml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: home
+spec:
+  selector:
+    matchLabels:
+      app: home
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: home
+    spec:
+      containers:
+      - name: home
+        image: rakeshagrawal1502/python-flask-home:1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+        # command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
