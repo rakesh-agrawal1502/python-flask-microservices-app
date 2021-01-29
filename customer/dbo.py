@@ -113,6 +113,6 @@ def create_customer_obj():
 
 # insert_customer_with_invoices(create_customer_obj())
 
-select_customers()
+# select_customers()
 
 # search_customer_by_invoice(1)
