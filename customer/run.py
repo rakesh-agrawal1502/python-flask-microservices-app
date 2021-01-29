@@ -5,6 +5,13 @@ from controllers import customer
 
 application = Flask( __name__ )
 
+# enable CORS
+# CORS( app )
+
+# set config
+# app_settings = os.getenv( 'APP_SETTINGS' )
+# app.config.from_object( app_settings )
+
 application.config.from_object( 'config' )
 
 # export YOURAPPLICATION_SETTINGS=/path/to/settings.cfg

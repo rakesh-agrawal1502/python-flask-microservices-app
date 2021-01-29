@@ -1,0 +1,41 @@
+# Used for Deployment
+# kubectl apply -f .\customer-deployment.yml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer
+spec:
+  selector:
+    matchLabels:
+      app: customer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: customer
+    spec:
+      containers:
+      - name: customer
+        image: rakeshagrawal1502/python-flask-customer:1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+        env:
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: password
+          - name: POSTGRES_HOST
+            value: postgres
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+
+

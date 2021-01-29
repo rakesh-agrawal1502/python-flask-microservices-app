@@ -2,16 +2,16 @@ version: '3.7'
 
 services:
   invoice:
-    image: rakeshagrawal1502/python-flask-service:1.0
+    build: .
     networks:
       - api-net
     container_name: "python_flask_invoice"
     ports:
       # For flask default server use 5001:5000
       - 8002:8000
-    volumes:
+    # volumes:
       # Mount current directory from docker host to /usr/src/app in container
-      - .:/usr/src/app
+      # - .:/usr/src/app
     restart: always
 
 networks:

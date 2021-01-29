@@ -41,6 +41,7 @@ def insert_customer_with_invoices(customer):
 
 
 def select_customers():
+    print( "================================================================= ", config.DATABASE_URI )
     session = Session()
     # result = session.query(Customer).filter(Customer.id > 1)
     # result = session.query(Customer).filter(Customer.id == 1)
@@ -98,13 +99,14 @@ def search_customer_by_invoice(invoice_no):
 
 
 def create_customer_obj():
-    customer = Customer( name='Rakesh Agrawal', address='Bhilai', email='rakesh_agrawal@outlook.com' )
-    customer.invoices = [Invoice( amount=100 ), Invoice( amount=300 )]
+    invoices = [Invoice( amount=100 ), Invoice( amount=300 )]
+    customer = Customer( name='Rakesh Agrawal', address='Bhilai', email='rakesh_agrawal@outlook.com', invoices=invoices)
     return customer
+
 
 # delete_customer(1)
 
-# insert_customer("Poonam Mittal", "Hyderabad", "poonam.mittal09@gmail.com")
+# insert_customer( "Poonam Mittal", "Hyderabad", "poonam.mittal09@gmail.com" )
 
 # update_customer()
 
