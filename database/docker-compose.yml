@@ -1,4 +1,6 @@
 # This will be used when deploying without K8S
+# docker-compose up -d --build
+# docker-compose down
 
 version: '3.7'
 
