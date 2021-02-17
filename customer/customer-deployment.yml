@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: customer
-        image: rakeshagrawal1502/python-flask-customer:1.0
+        image: rakeshagrawal1502/python-flask-customer:1.1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
