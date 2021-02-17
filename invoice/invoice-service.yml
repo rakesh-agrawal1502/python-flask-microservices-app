@@ -1,0 +1,16 @@
+# Used for creating service and integrating with deployment
+# kubectl create -f .\invoice-service.yml
+# port: port at which the service may be reached at
+# targetPort: port on which the service’s corresponding container receives traffic at
+apiVersion: v1
+kind: Service
+metadata:
+  name: invoice
+spec:
+  selector:
+    app: invoice
+  ports:
+  - protocol: "TCP"
+    port: 8002
+    targetPort: 8000
+  type: LoadBalancer

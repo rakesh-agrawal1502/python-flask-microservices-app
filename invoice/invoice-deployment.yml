@@ -1,0 +1,44 @@
+# Used for Deployment
+# kubectl apply -f .\invoice-deployment.yml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: invoice
+spec:
+  selector:
+    matchLabels:
+      app: invoice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: invoice
+    spec:
+      containers:
+      - name: invoice
+        image: rakeshagrawal1502/python-flask-invoice:1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+        env:
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: password
+          - name: POSTGRES_HOST
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: host
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+
+
