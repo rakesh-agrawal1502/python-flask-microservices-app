@@ -1,5 +1,6 @@
 # Used for building docker image for customer service
-# docker build -f Dockerfile -t rakeshagrawal1502/python-flask-customer:1.0 .
+# docker build -f Dockerfile -t rakeshagrawal1502/python-flask-invoice:1.0 .
+# docker image push rakeshagrawal1502/python-flask-invoice:1.0
 
 FROM rakeshagrawal1502/python-flask-service:1.0
 WORKDIR /usr/src/app
