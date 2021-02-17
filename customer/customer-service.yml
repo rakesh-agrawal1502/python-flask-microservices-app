@@ -1,5 +1,7 @@
 # Used for creating service and integrating with deployment
 # kubectl create -f .\customer-service.yml
+# port: port at which the service may be reached at
+# targetPort: port on which the service’s corresponding container receives traffic at
 apiVersion: v1
 kind: Service
 metadata:
