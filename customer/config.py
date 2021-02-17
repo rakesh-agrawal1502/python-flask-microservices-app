@@ -13,9 +13,9 @@ class Config( object ):
     DEBUG = False
     # DATABASE_URI = "postgresql+psycopg2://postgres:password@localhost:5432/flask"
     # DATABASE_URI = "postgresql+psycopg2://postgres:password@localhost:5434/flask"
-    DATABASE_URI = "postgresql+psycopg2://postgres:password@db:5432/flask"
+    # DATABASE_URI = "postgresql+psycopg2://postgres:password@db:5432/flask"
     # DATABASE_URI = "postgresql+psycopg2://postgres:password@localhost:5434/flask"
-    # DATABASE_URI = DB_URL
+    DATABASE_URI = DB_URL
 
 
 class DevelopmentConfig( Config ):
