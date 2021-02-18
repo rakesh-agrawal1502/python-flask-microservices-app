@@ -34,9 +34,9 @@ spec:
                 key: password
           - name: POSTGRES_HOST
             valueFrom:
-              secretKeyRef:
-                name: postgres-credentials
-                key: host
+              configMapKeyRef:
+                name: app-config
+                key: DB_HOST
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
