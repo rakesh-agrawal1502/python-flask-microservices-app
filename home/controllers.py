@@ -9,7 +9,7 @@ def land():
 
 
 @home.route( "/home", methods=['GET'] )
-def home():
+def homepage():
     # return "<h1>Hello World</h1>"
     return render_template( "home.html" )
 
