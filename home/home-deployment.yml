@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: home
-        image: rakeshagrawal1502/python-flask-home:1.0
+        image: rakeshagrawal1502/python-flask-home:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000

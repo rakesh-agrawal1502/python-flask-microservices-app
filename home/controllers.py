@@ -3,8 +3,13 @@ from flask import jsonify, request, render_template, Blueprint
 home = Blueprint( 'home', __name__ )
 
 
-@home.route( "/home", methods=['GET'] )
+@home.route( "/", methods=['GET'] )
 def land():
+    return render_template( "landing.html" )
+
+
+@home.route( "/home", methods=['GET'] )
+def home():
     # return "<h1>Hello World</h1>"
     return render_template( "home.html" )
 

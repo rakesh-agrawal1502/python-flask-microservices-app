@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: invoice
-        image: rakeshagrawal1502/python-flask-invoice:1.0
+        image: rakeshagrawal1502/python-flask-invoice:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
