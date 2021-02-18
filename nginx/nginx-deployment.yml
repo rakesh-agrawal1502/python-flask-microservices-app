@@ -6,6 +6,9 @@
 # kubectl create configmap nginx-config --from-file nginx.conf
 # kubectl get configmaps
 
+# We can also keep nginx conf as part of configmap yaml. To generate Yaml from command we can use below command:
+# kubectl create configmap --dry-run test-config --from-file nginx.conf --output yaml > test-configmap.yml
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
