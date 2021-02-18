@@ -1,6 +1,11 @@
 # Used for Deployment
 # kubectl apply -f .\nginx-deployment.yml
 
+# Put the nginx config file in configmap so that later it can be used from deployment yaml file to put the
+# config file in containers
+# kubectl create configmap nginx-config --from-file nginx.conf
+# kubectl get configmaps
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:

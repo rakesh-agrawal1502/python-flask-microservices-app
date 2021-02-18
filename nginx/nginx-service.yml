@@ -1,5 +1,6 @@
 # Used for creating service and integrating with deployment
 # kubectl create -f .\nginx-service.yml
+
 apiVersion: v1
 kind: Service
 metadata:
