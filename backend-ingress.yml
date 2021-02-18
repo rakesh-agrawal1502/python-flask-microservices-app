@@ -10,15 +10,13 @@ spec:
   rules:
   - http:
       paths:
-      - pathType: Prefix
-        path: "/home/*"
+      - path: "/home/*"
         backend:
           serviceName: home
           servicePort: 8001
   - http:
       paths:
-      - pathType: Prefix
-        path: "/api/v1/customers/*"
+      - path: "/api/v1/customers/*"
         backend:
           serviceName: customer
           servicePort: 8000
