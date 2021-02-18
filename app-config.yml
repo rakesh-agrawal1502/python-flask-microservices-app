@@ -1,0 +1,10 @@
+# Application Configuration file
+# kubectl apply -f app-config.yml
+# kubectl get configmaps
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  DB_HOST: 10.124.12.99
