@@ -2,10 +2,12 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: backend-ingress
+  annotations:
+    # use the shared ingress-nginx
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: "home.foo.com"
-    http:
+  - http:
       paths:
       - pathType: Prefix
         path: "/home/*"
@@ -14,8 +16,7 @@ spec:
             name: home
             port:
               number: 8001
-  - host: "customer.foo.com"
-    http:
+  - http:
       paths:
       - pathType: Prefix
         path: "/api/v1/customers/*"
