@@ -12,5 +12,6 @@ spec:
   ports:
   - protocol: "TCP"
     port: 8002
+    name: http-invoice
     targetPort: 8000
   type: ClusterIP
