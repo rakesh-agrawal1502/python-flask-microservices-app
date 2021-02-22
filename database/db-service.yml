@@ -16,5 +16,6 @@ spec:
     service: postgres
   ports:
   - port: 5432
+    name: tcp-postgres
     targetPort: 5432
   type: ClusterIP
