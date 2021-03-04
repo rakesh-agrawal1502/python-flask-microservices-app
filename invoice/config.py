@@ -1,14 +1,14 @@
 # Define the application directory
 import os
 
-POSTGRES_USER = os.environ.get( 'POSTGRES_USER' )
-POSTGRES_PASSWORD = os.environ.get( 'POSTGRES_PASSWORD' )
+POSTGRES_USER = os.environ.get('POSTGRES_USER')
+POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD')
 POSTGRES_HOST = os.environ.get('POSTGRES_HOST')
 DB_URL = f'postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:5432/flask'
 
 
-class Config( object ):
-    BASE_DIR = os.path.abspath( os.path.dirname( __file__ ) )
+class Config(object):
+    BASE_DIR = os.path.abspath(os.path.dirname(__file__))
     # Statement for enabling the development environment
     DEBUG = False
     # DATABASE_URI = "postgresql+psycopg2://postgres:password@localhost:5432/flask"
@@ -18,9 +18,9 @@ class Config( object ):
     DATABASE_URI = DB_URL
 
 
-class DevelopmentConfig( Config ):
+class DevelopmentConfig(Config):
     DEBUG = True
 
 
-class ProdConfig( Config ):
+class ProdConfig(Config):
     DEBUG = False
