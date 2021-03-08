@@ -1,5 +1,5 @@
 # Used for Deployment
-# kubectl apply -f .\home-deployment.yml
+# kubectl apply -f home-deployment.yml
 
 apiVersion: apps/v1
 kind: Deployment

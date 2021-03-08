@@ -1,5 +1,5 @@
 # Used for creating service and integrating with deployment
-# kubectl create -f .\home-service.yml
+# kubectl create -f home-service.yml
 apiVersion: v1
 kind: Service
 metadata:
