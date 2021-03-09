@@ -12,4 +12,5 @@ spec:
     port: 8001
     name: http-home
     targetPort: 8000
+  # Set this as NodePort for accessing outside in env without LoadBalancer
   type: ClusterIP
