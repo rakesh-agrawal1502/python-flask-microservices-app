@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: apisinvoker
-        image: rakeshagrawal1502/python-flask-apisinvoker:1.1
+        image: rakeshagrawal1502/python-flask-apisinvoker:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
