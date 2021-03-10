@@ -1,0 +1,33 @@
+# Used for Deployment
+# kubectl apply -f apisinvoker-deployment.yml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apisinvoker
+spec:
+  selector:
+    matchLabels:
+      app: apisinvoker
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: apisinvoker
+    spec:
+      containers:
+      - name: apisinvoker
+        image: rakeshagrawal1502/python-flask-apisinvoker:1.1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+        env:
+          - name: CUSTOMER_SERVICE_URL
+            value: http://customer:8000/api/v1/customers
+          - name: INVOICE_SERVICE_URL
+            value: http://invoice:8002/api/v1/invoices
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+
+

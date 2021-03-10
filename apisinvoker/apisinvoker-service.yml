@@ -1,0 +1,17 @@
+# Used for creating service and integrating with deployment
+# kubectl create -f apisinvoker-service.yml
+# port: port at which the service may be reached at
+# targetPort: port on which the service’s corresponding container receives traffic at
+apiVersion: v1
+kind: Service
+metadata:
+  name: apisinvoker
+spec:
+  selector:
+    app: apisinvoker
+  ports:
+  - protocol: "TCP"
+    port: 8003
+    name: tcp-apisinvoker
+    targetPort: 8000
+  type: ClusterIP
